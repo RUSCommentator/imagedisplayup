@@ -3,14 +3,7 @@ import cv2
 import time
 import random
 
-def imagechecker(pathfo):
-    image_paths = []
-    for root, dirs, files in os.walk(pathfo):
-        for file in files:
-            if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
-                image_path = os.path.join(root, file)
-                image_paths.append(image_path)
-    return image_paths
+
 
 def showimage(pathfi, interval):
     time.sleep(interval)
@@ -23,6 +16,15 @@ def showimage(pathfi, interval):
         cv2.destroyAllWindows()
     else:
         print("Error reading image:", pathfi)
+        
+def imagechecker(pathfo):
+    image_paths = []
+    for root, dirs, files in os.walk(pathfo):
+        for file in files:
+            if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                image_path = os.path.join(root, file)
+                image_paths.append(image_path)
+    return image_paths
 
 def main():
     while True:
